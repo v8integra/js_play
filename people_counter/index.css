@@ -17,6 +17,11 @@ h2 {
     margin-bottom: 20px;
 }
 
+hr {
+    margin: 50px auto;
+    width: 400px;
+}
+
 button {
     border: none;
     padding-top: 10px;
@@ -38,4 +43,8 @@ button {
 
 #save-btn {
     background: blue;
+}
+
+#clear-btn {
+    background: rgb(124, 33, 228);
 }

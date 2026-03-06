@@ -27,6 +27,8 @@ function save() {
     }
   }
 
+  count = 0;
+  document.getElementById('counter').innerText = 0;
   document.getElementById('save').innerText = entriesString;
 }
 

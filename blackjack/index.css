@@ -9,6 +9,12 @@ h1 {
   color: goldenrod;
 }
 
+div {
+  margin: 10px auto;
+  text-align: center;
+  width: 200px;
+}
+
 .btn {
   background-color: goldenrod;
   border: none;
@@ -17,9 +23,14 @@ h1 {
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
   font-weight: bold;
   padding: 6px 0;
+  margin: 3px auto;
   width: 150px;
 }
 
 #message {
   font-style: italic;
+}
+
+#draw {
+  display: none;
 }

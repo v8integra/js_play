@@ -59,6 +59,12 @@ main {
 }
 
 /* text */
+h1 {
+    color: azure;
+    font-family: 'Comic Neue';
+    font-size: 30px;
+    font-weight: bold;
+}
 
 h2 {
     text-align: center;

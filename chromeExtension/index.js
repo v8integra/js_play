@@ -11,11 +11,16 @@ if(localStorage.getItem('myLeads')) {
 }
 
 inputBtn.addEventListener('click', function() {
-    myLeads.push(input.value)
-    myLeadsStore = JSON.stringify(myLeads);
-    localStorage.setItem('myLeads', myLeadsStore);
-    input.value = '';
-    renderLeads()
+  if(input.value === '') {
+    let currentUrl = window.location.href;
+    input.value = currentUrl;
+  }
+
+  myLeads.push(input.value)
+  myLeadsStore = JSON.stringify(myLeads);
+  localStorage.setItem('myLeads', myLeadsStore);
+  input.value = '';
+  renderLeads()
 });
 
 clearBtn.addEventListener('click', function() {

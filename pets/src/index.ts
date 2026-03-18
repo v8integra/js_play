@@ -10,19 +10,45 @@ const app: Express = express()
 
 app.use(cors())
 
+type PetQueryParams = {
+  species?:string,
+  adopted?: 'true' | 'false',
+  minAge?: string,
+  maxAge?: string
+}
+
 app.get('/', (
-  req: Request <{}, unknown, {}, {species?: string}>, 
+  req: Request <{}, unknown, {}, PetQueryParams>, 
   res: Response<Pet[]>): void=> {
-    
-  const {species} = req.query
+
+  const {species, adopted, minAge, maxAge} = req.query
 
   let filteredPets: Pet[] = pets
   
   if (species){
-    filteredPets = filteredPets.filter((pet: Pet): boolean=>
+    filteredPets = filteredPets.filter((pet:Pet):boolean=>
       pet.species.toLowerCase() === species.toLowerCase()
     )
   }
+
+  if (adopted){
+    filteredPets = filteredPets.filter((pet:Pet):boolean=>
+      pet.adopted === JSON.parse(adopted)
+    )
+  }
+
+  if (minAge){
+    filteredPets = filteredPets.filter((pet:Pet):boolean=>
+      pet.age >= JSON.parse(minAge)
+    )
+  }
+
+  if (maxAge){
+    filteredPets = filteredPets.filter((pet:Pet):boolean=>
+      pet.age <= JSON.parse(maxAge)
+    )
+  }
+
   res.json(filteredPets)
 })
 
